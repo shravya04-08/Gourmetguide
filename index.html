@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Guide | Delicious Recipes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Gourmet Guide</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#recipes">Recipes</a></li>
+            <li><a href="#video">Video Guide</a></li>
+            <li><a href="#submit">Submit Recipe</a></li>
+        </ul>
+        <button id="theme-toggle" class="btn-secondary">Dark Mode</button>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Master the Art of Cooking</h1>
+            <p>Discover recipes, share your own, and watch expert tutorials.</p>
+            <a href="#recipes" class="btn-primary">Explore Recipes</a>
+        </div>
+    </header>
+
+    <section id="recipes" class="container">
+        <h2>Featured Recipes</h2>
+        <div class="recipe-grid">
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Pizza">
+                <div class="card-content">
+                    <h3>Classic Margherita</h3>
+                    <p>A simple yet delicious Italian classic with basil and mozzarella.</p>
+                    
+                </div>
+            </div>
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Avocado Toast">
+                <div class="card-content">
+                    <h3>Avocado Toast</h3>
+                    <p>The perfect healthy breakfast with poached eggs and spices.</p>
+                    
+                </div>
+            </div>
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Pancakes">
+                <div class="card-content">
+                    <h3>Fluffy Pancakes</h3>
+                    <p>Start your day right with these airy, sweet American pancakes.</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="video" class="video-section">
+        <div class="container">
+            <h2>Recipe of the Month: Perfect Pasta</h2>
+            <p>Watch our featured chef prepare this dish step-by-step.</p>
+            <div class="video-container">
+                <video controls poster="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section id="submit" class="container form-section">
+        <h2>Submit Your Own Recipe</h2>
+        <form id="recipe-form">
+            <div class="form-group">
+                <label for="recipe-name">Recipe Name:</label>
+                <input type="text" id="recipe-name" placeholder="e.g., Mom's Apple Pie" required>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category">
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="instructions">Instructions:</label>
+                <textarea id="instructions" rows="5" placeholder="Step 1..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="food-image">Upload Photo:</label>
+                <input type="file" id="food-image" accept="image/*">
+                <div id="file-preview" class="file-preview"></div>
+            </div>
+
+            <button type="submit" class="btn-primary">Submit Recipe</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Gourmet Guide. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
