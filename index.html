@@ -9,6 +9,19 @@
   gtag('js', new Date());
 
   gtag('config', 'G-K4NKXWCR0V');
+  (function setCustomerSegment() 
+   { 
+       let visits = Number(localStorage.getItem('visit_count')) || 0; 
+       visits++; 
+       localStorage.setItem('visit_count', visits); 
+       let segment = 'New'; 
+       if (visits > 1 && visits <= 5) 
+           segment = 'Returning'; 
+       if (visits > 5) 
+           segment = 'Frequent';
+                                  // Correct gtag syntax 
+       gtag('set', {'user_properties': { customer_segment: segment }}); 
+   })();  
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,4 +134,5 @@
 </body>
 
 </html>
+
 
