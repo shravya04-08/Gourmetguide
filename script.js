@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Form Submission Handling
     const form = document.getElementById('recipe-form');
-
+    let formFieldInteractions = 0;
     let formStartTime = null;
 
 // Start timer on first interaction with the form
@@ -69,6 +69,16 @@ document.addEventListener('DOMContentLoaded', () => {
             formStartTime = Date.now();
             console.log('Form timer started');
         }
+    });
+
+    // Count interactions with form fields
+    const formFields = form.querySelectorAll('input, select, textarea');
+
+    formFields.forEach(field => {
+        field.addEventListener('focus', () => {
+            formFieldInteractions++;
+            console.log('Form field interaction count:', formFieldInteractions);
+        });
     });
 
     form.addEventListener('submit', (e) => {
@@ -93,7 +103,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof gtag === 'function') {
         gtag('event', 'submit_recipe', {
             recipe_category: category,
-            form_completion_time_ms: formCompletionTimeMs
+            form_completion_time_ms: formCompletionTimeMs,
+            form_field_interactions: formFieldInteractions
         });
         console.log('submit_recipe sent with category:', category);
         console.log('submit_recipe sent with:', {
@@ -107,8 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Clear the form and preview
         form.reset();
         previewContainer.innerHTML = '';
+
+        formFieldInteractions = 0;
+        formStartTime = null;
     });
 });
+
 
 
 
