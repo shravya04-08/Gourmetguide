@@ -1,6 +1,6 @@
 console.log('script.js is loaded');
 document.addEventListener('DOMContentLoaded', () => {
-
+    console.log('DOM fully loaded');
     const navLinks = document.querySelectorAll('.nav-links a');
 
     navLinks.forEach(link => {
@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         previewContainer.innerHTML = '';
     });
 });
+
 
 
 
