@@ -1,5 +1,19 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            const linkName = link.getAttribute('data-nav');
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'navigation_link_clicked', {
+                    navigation_link_clicked: linkName
+                });
+            }
+        });
+    });
     
     // 1. Dark Mode Toggle Feature
     const themeToggleBtn = document.getElementById('theme-toggle');
@@ -64,3 +78,4 @@ document.addEventListener('DOMContentLoaded', () => {
         previewContainer.innerHTML = '';
     });
 });
+
