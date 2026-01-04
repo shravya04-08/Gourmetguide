@@ -72,6 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Please enter a recipe name.");
             return;
         }
+        
+        //RECIPE CATEGORY TRACKING
+        if (typeof gtag === 'function') {
+        gtag('event', 'submit_recipe', {
+            recipe_category: category
+        });
+        console.log('submit_recipe sent with category:', category);
+    }
 
         alert(`Success! Your recipe for "${recipeName}" (${category}) has been submitted.`);
         
@@ -80,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         previewContainer.innerHTML = '';
     });
 });
+
 
 
 
