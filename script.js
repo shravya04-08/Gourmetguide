@@ -1,4 +1,4 @@
-
+console.log('script.js is loaded');
 document.addEventListener('DOMContentLoaded', () => {
 
     const navLinks = document.querySelectorAll('.nav-links a');
@@ -80,5 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
         previewContainer.innerHTML = '';
     });
 });
+
 
 
