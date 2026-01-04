@@ -6,8 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             const linkName = link.getAttribute('data-nav');
+            console.log('Nav link clicked:', linkName);
 
             if (typeof gtag === 'function') {
+                console.log('gtag() exists. Sending event to GA4...');
                 gtag('event', 'navigation_link_clicked', {
                     navigation_link_clicked: linkName
                 });
@@ -78,4 +80,5 @@ document.addEventListener('DOMContentLoaded', () => {
         previewContainer.innerHTML = '';
     });
 });
+
 
