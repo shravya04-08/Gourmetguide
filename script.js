@@ -61,6 +61,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Form Submission Handling
     const form = document.getElementById('recipe-form');
 
+    let formStartTime = null;
+
+// Start timer on first interaction with the form
+    form.addEventListener('focusin', () => {
+        if (formStartTime === null) {
+            formStartTime = Date.now();
+            console.log('Form timer started');
+        }
+    });
+
     form.addEventListener('submit', (e) => {
         e.preventDefault(); // Stop page from reloading
 
@@ -72,13 +82,24 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Please enter a recipe name.");
             return;
         }
+
+        let formCompletionTimeMs = 0;
+
+        if (formStartTime !== null) {
+            formCompletionTimeMs = Date.now() - formStartTime;
+        }
         
         //RECIPE CATEGORY TRACKING
         if (typeof gtag === 'function') {
         gtag('event', 'submit_recipe', {
-            recipe_category: category
+            recipe_category: category,
+            form_completion_time_ms: formCompletionTimeMs
         });
         console.log('submit_recipe sent with category:', category);
+        console.log('submit_recipe sent with:', {
+        category: category,
+        form_completion_time_ms: formCompletionTimeMs
+    });
     }
 
         alert(`Success! Your recipe for "${recipeName}" (${category}) has been submitted.`);
@@ -88,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
         previewContainer.innerHTML = '';
     });
 });
+
 
 
 
