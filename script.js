@@ -102,9 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //RECIPE CATEGORY TRACKING
         if (typeof gtag === 'function') {
         gtag('event', 'submit_recipe', {
-            recipe_category: category,
-            form_completion_time_ms: formCompletionTimeMs,
-            form_field_interactions: formFieldInteractions
+            recipe_category: category
         });
         console.log('submit_recipe sent with category:', category);
         console.log('submit_recipe sent with:', {
@@ -112,7 +110,18 @@ document.addEventListener('DOMContentLoaded', () => {
         form_completion_time_ms: formCompletionTimeMs
     });
     }
-
+        
+    if (typeof gtag === 'function') {
+      gtag('event', 'form_completion_time', {
+        form_completion_time_ms: formCompletionTimeMs
+      });
+    }
+       
+    if (typeof gtag === 'function') {
+      gtag('event', 'form_field_interactions', {
+        form_field_interactions: formFieldInteractions
+      });
+    }
         alert(`Success! Your recipe for "${recipeName}" (${category}) has been submitted.`);
         
         // Clear the form and preview
@@ -123,6 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formStartTime = null;
     });
 });
+
 
 
 
